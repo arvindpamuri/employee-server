@@ -3,7 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mysql = require('mysql')
+var mysql = require('mysql');
+var cors = require('cors');
+
 
 var config = require('./config');
 
@@ -13,6 +15,10 @@ var employeesRouter = require('./routes/employees');
 var customerRouter = require('./routes/customers');
 
 var app = express();
+
+app.use(cors({
+  origin: '*'
+}));
 
 //connect to database
 
